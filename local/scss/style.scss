@@ -3,12 +3,13 @@
 * {
   padding: 0px;
   margin: 0px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: color('gray', 80);
 }
 h1, h2, h3 {
   font-size: 5em;
-  font-weight: 100;
+  font-weight: 200;
+  letter-spacing: 2px;
   text-align: center;
 }
 h1 {
@@ -17,63 +18,100 @@ h1 {
 h2 {
   font-size: 3em;
 }
-h3 {
-    font-size: 1.5em;
+h3, h4 {
+    font-size: 2em;
     margin-bottom: 15px;
-    color: color('violet', 40);
+    color: color('gray', 80);
     text-align: left;
+    font-weight: 400;
 }
-
-
+h4 {
+  font-size: 1.8em;
+  letter-spacing: 1px;
+}
 body {
   background: color('gray', 1);
 }
-
+.action-btn {
+  height: 60px;
+  background: color('cerulean', 30);
+  color: color('white', 0);
+  border: none;
+  display: block;
+  padding: 0px 50px;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  outline: none; // Removes blue glow on click
+  border-radius: 30px;
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    background: color('cerulean', 20);
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+  }
+}
+a, .action-btn{
+  text-decoration: none;
+}
+.center-btn {
+  margin: 40px auto 0px auto;
+}
+#connect {
+  transition: all 2s ease-in-out;
+}
 .navbar {
-  height: 80px;
+  height: 100px;
   width: 100%;
-  background: color('gray', 70);
+  background: color('gray', 80, 0.95);
   float: left;
   position: fixed;
   margin-bottom: -80px;
   img {
-    height: 70px;
+    height: 80px;
     width: auto;
-    padding: 5px 40px;
+    padding: 10px 40px;
   }
   ul {
     display: inline-block;
     float: right;
     padding-right: 40px;
+    margin-right: -12px;
   }
   li {
     display: inline-block;
     color: white;
-    height: 80px;
-    line-height: 80px;
-    padding: 0px 20px;
+    height: 100px;
+    line-height: 100px;
+    padding: 0px 12px 0px 20px; // Minus 8px right for letter-spacing
     font-size: 1.2em;
-    letter-spacing: 2px;
+    letter-spacing: 8px;
+    font-weight: 200;
+    transition: all 0.5s ease-in-out;
     &:hover {
-      background: color('gray', 60);
+      background: color('gray', 70);
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
     }
   }
 }
 .content-container {
   display: block;
   height: auto;
-  width: calc(100% - 40px);
-  padding: 20px;
+  width: calc(100% - 80px);
+  padding: 40px;
   overflow: hidden;
+  p {
+    letter-spacing: 2px;
+  }
 }
 .max {
   display: block;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto !important;
   float: none !important;
 }
 .content {
-  max-width: 1200px;
+  max-width: 1400px;
   padding: 20px;
   box-sizing: border-box;
   overflow: hidden;
@@ -86,24 +124,88 @@ body {
   float: left;
 }
 
-.col-xs-1, .col-sm-2, .col-md-3, .col-lg-4, .col-xl-5, .col-xx-6 {
+.col-xs-1, .col-sm-2, .col-md-3, .col-lg-4, .col-xl-5, .col-xx-6, .tile {
   height: auto;
   min-height: 200px; //Delete
   margin: 20px;
   float: left;
 }
-.col-xs-1{width: calc(16.66% - 40px)};
-.col-sm-2{width: calc(33.33% - 40px)};
-.col-md-3{width: calc(50% - 40px)};
-.col-lg-4{width: calc(66.66% - 40px)};
-.col-xl-5{width: calc(83.33% - 40px)};
-.col-xx-6{width: calc(100% - 40px)};
+.col-xs-1{width: calc(16.66% - 80px)};
+.col-sm-2{width: calc(33.33% - 80px)};
+.col-md-3{width: calc(50% - 80px)};
+.col-lg-4{width: calc(66.66% - 80px)};
+.col-xl-5{width: calc(83.33% - 80px)};
+.col-xx-6{width: calc(100% - 80px)};
 
+// Tile styles
 .tile {
   background: color('white', 0);
-  box-shadow: 0px 0px 10px color('gray', 80);
-  border-radius: 20px;
+  box-shadow: 0px 0px 10px color('gray', 80, 0.25);
+  padding: 20px;
+  margin: 0px;
 }
+.tile-image {
+  img {
+    height: auto;
+    width: 100%;
+    display: block;
+  }
+}
+.tile-title {
+  min-height: 50px;
+  height: auto;
+  width: 100%;
+  padding-top: 14px;
+  float: left;
+  display: block;
+}
+.tile-content {
+  min-height: 60px;
+  height: auto;
+  width: 100%;
+  float: left;
+}
+.tile-tools {
+  min-height: 20px;
+  padding-top: 24px;
+  float: left;
+  p {
+    color: color('gray', 40);
+    font-size: 0.8em;
+    font-weight: 200;
+    letter-spacing: 4px;
+  }
+  .tools-style {
+    font-weight: 400;
+    letter-spacing: 2px;
+  }
+}
+.tile-link {
+  min-height: 36px;
+  padding-top: 20px;
+  height: auto;
+  width: 100%;
+  display: block;
+  float: left;
+  text-align: right;
+  a {
+    color: color('white', 0);
+    background: color('gray', 80);
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 50px;
+    transition: all 0.5s ease-in-out;
+    letter-spacing: 2px;
+    font-size: 0.8em;
+    &:hover {
+      background: color('ultramarine', 30);
+      padding: 10px 20px;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+  i {color: color('white', 0);}
+}
+
 .landing {
   padding-top: 80px;
   background-image: url('../../dist/img/mountain-01.jpg');
